@@ -31,7 +31,11 @@ class Body
     end
 
     def collides(body)
-        @fixtures.first.shape.overlaps(body.fixtures.first.shape)
+        shape.overlaps(body.shape)
+    end
+
+    def shape
+        @fixtures.first.shape
     end
 
     #update the location of the body and all fixtures
