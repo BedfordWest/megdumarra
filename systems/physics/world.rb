@@ -1,4 +1,6 @@
 require_relative '../physics/collisions/collisions.rb'
+require_relative '../physics/collisions/contact.rb'
+require_relative '../physics/collisions/contact_handler.rb'
 class World
     include Collisions
     attr_reader :bodies
@@ -6,6 +8,7 @@ class World
 
     def initialize
         @bodies = Array.new
+        @contact_handler = ContactHandler.new
     end
 
     def add_body(body)
@@ -32,12 +35,6 @@ class World
 
     def update(delta)
         check_collisions(self)
-    end
-
-    #provide the subset of contacts which include the provided body
-    def contacts_for(body)
-        @contacts.filter { |contact|
-            contact.contains?(body)
-        }
+        @contact_handler.update(delta)
     end
 end

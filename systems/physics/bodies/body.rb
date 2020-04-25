@@ -31,6 +31,13 @@ class Body
     end
 
     def collides(body)
+        if(body.entity.is_a? Player)
+           # puts "shape is centered at [#{body.shape.center.x}, #{body.shape.center.y}"
+            #puts "shape top left at [#{body.shape.top_left.x}, #{body.shape.top_left.y}"
+            #puts "shape bottom right at [#{body.shape.bottom_right.x}, #{body.shape.bottom_right.y}"
+            #puts "shape2 is centered at [#{shape.center.x}, #{shape.center.y}"
+            #puts "shape2 top left at [#{shape.top_left.x}, #{shape.top_left.y}"
+        end
         shape.overlaps(body.shape)
     end
 

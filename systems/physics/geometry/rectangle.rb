@@ -12,10 +12,10 @@ class Rectangle < Shape
     attr_reader :height
 
     def set_corners
-        ul_x = @center.x - @width/2
-        ul_y = @center.y + @height/2
-        br_x = @center.x + @width/2
-        br_y = @center.y - @height/2
+        ul_x = (@center.x - @width/2.0)
+        ul_y = (@center.y + @height/2.0)
+        br_x = (@center.x + @width/2.0)
+        br_y = (@center.y - @height/2.0)
         @top_left = Point.new(ul_x, ul_y)
         @bottom_right = Point.new(br_x, br_y)
         self

@@ -37,6 +37,7 @@ class Megdumarra < Gosu::Window
         vel = Velocity.new(vel_x,vel_y)
         @player.with_vel(vel)
         @player.move(delta)
+        @player.update(delta)
         @world.update(delta)
     end
 

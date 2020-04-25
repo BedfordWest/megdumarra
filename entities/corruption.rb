@@ -10,7 +10,7 @@ class Corruption < Entity
     end
 
     def draw
-        bounds = @body.fixtures.first.shape
+        bounds = @body.shape
         Gosu::draw_rect(
             bounds.top_left.x * Constants::RENDER_SCALE,
             bounds.top_left.y * Constants::RENDER_SCALE,

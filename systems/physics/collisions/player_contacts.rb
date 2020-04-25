@@ -1,6 +1,6 @@
 module PlayerContacts
-    def handle_contact(contact)
-        player = contact.obj_1
+    def player_contact(contact)
+        player = contact.obj_2.entity
         player.hit = true
     end
 end
