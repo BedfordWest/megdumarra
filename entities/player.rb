@@ -23,6 +23,7 @@ class Player < Entity
     end
 
     def update(delta)
+        move(delta)
         if @hit
             @color = Gosu::Color::RED
         end
