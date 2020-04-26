@@ -20,7 +20,7 @@ class Input
             vel_y += 0.005
         end
         vel = Velocity.new(vel_x,vel_y)
-        @player.with_vel(vel)
+        @player.vel = vel
     end
 
     def button_down(id)

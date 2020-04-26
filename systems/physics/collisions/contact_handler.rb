@@ -12,6 +12,7 @@ class ContactHandler
 
     #iterate through the contacts and perform updates to entities accordingly
     def update(delta)
+        #for now just handle body contacts - fixtures may come later
         @body_contacts.each { |contact|
             case contact.obj_2.entity
             when Player

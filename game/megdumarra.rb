@@ -22,6 +22,7 @@ class Megdumarra < Gosu::Window
         delta = update_time
         @input.handle_input
         @player.update(delta)
+        @map.humans.each { |human| human.update(delta) }
         @world.update(delta)
     end
 

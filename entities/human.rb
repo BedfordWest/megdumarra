@@ -8,6 +8,7 @@ class Human < Entity
         square = Square.new(loc).with_sides(1).set_corners
         fixture = Fixture.new(square)
         body = Body.new.with_fixture(fixture)
+        @move_rate = 0.005
         super(body, color, loc)
     end
 
@@ -21,5 +22,16 @@ class Human < Entity
             @color, 
             1
         )
+    end
+
+    def update(delta)
+        @direction = Gosu::random(0.0, 2 * Math::PI)
+        update_velocity
+        move(delta)
+    end
+
+    def update_velocity
+        @vel.x = @move_rate * Math.cos(@direction)
+        @vel.y = @move_rate * Math.sin(@direction)
     end
 end
