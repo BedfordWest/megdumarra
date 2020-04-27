@@ -1,3 +1,4 @@
+require_relative '../game/constants.rb'
 require_relative '../entities/corruption.rb'
 require_relative '../entities/human.rb'
 require_relative '../entities/player.rb'
@@ -5,9 +6,11 @@ require_relative '../systems/physics/geometry/point.rb'
 require_relative '../systems/physics/geometry/square.rb'
 
 class Map
+    include Constants
+
     attr_reader :humans
     attr_reader :corruptions
-    
+
     def initialize(width, height)
         @width = width
         @height = height
@@ -27,8 +30,8 @@ class Map
 
     def randomize
         @humans = Array.new(@human_total) { |human|
-            x = Gosu::random(0,63)
-            y = Gosu::random(0,47)
+            x = Gosu::random(0,WORLD_Y - 1)
+            y = Gosu::random(0,WORLD_X - 1)
             point = Point.new(x,y)
             human = Human.new(point)
             human.move_frequency = Gosu::random(200, 5000)
@@ -36,8 +39,8 @@ class Map
         }
 
         @corruptions = Array.new(@corruption_total) { |corruption|
-            x = Gosu::random(0,63)
-            y = Gosu::random(0,47)
+            x = Gosu::random(0,WORLD_Y - 1)
+            y = Gosu::random(0,WORLD_X - 1)
             point = Point.new(x,y)
             corruption = Corruption.new(point)
         }

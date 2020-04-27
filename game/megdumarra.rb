@@ -1,14 +1,17 @@
 require 'gosu'
+require_relative 'constants.rb'
 require_relative '../map/map.rb'
 require_relative '../systems/input/input.rb'
 require_relative '../systems/physics/world.rb'
 
 class Megdumarra < Gosu::Window
+    include Constants
+
     def initialize
-        super 640, 480
+        super (RENDER_Y), (RENDER_X)
         self.caption = "Megdumarra v0.1b"
         @world = World.new
-        @map = Map.new(64, 48)
+        @map = Map.new(WORLD_Y, WORLD_X)
         @map.randomize
         @world.add_entities(@map.humans)
         @world.add_entities(@map.corruptions)
@@ -34,7 +37,7 @@ class Megdumarra < Gosu::Window
     end
 
     def draw
-        draw_rect(0,0,640,480,Gosu::Color::GRAY,0)
+        draw_rect(0,0,RENDER_Y,RENDER_X,Gosu::Color::GRAY,0)
         @map.draw
     end
 end

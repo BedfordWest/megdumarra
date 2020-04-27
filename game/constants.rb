@@ -1,3 +1,7 @@
 module Constants
     RENDER_SCALE = 10
+    WORLD_Y = 128
+    WORLD_X = 96
+    RENDER_Y = WORLD_Y * RENDER_SCALE
+    RENDER_X = WORLD_X * RENDER_SCALE
 end
