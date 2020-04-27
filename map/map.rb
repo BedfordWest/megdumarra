@@ -31,6 +31,8 @@ class Map
             y = Gosu::random(0,47)
             point = Point.new(x,y)
             human = Human.new(point)
+            human.move_frequency = Gosu::random(200, 5000)
+            human
         }
 
         @corruptions = Array.new(@corruption_total) { |corruption|

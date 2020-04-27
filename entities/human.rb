@@ -3,6 +3,8 @@ require_relative '../systems/physics/geometry/point.rb'
 require_relative 'livingentity.rb'
 
 class Human < LivingEntity
+    attr_accessor :move_frequency
+
     def initialize(loc)
         color = Gosu::Color.argb(0xff_edd8ca) #dark peach
         square = Square.new(loc).with_sides(1).set_corners
@@ -38,6 +40,9 @@ class Human < LivingEntity
         @elapsed += delta
         if(@elapsed > @move_frequency)
             @elapsed %= @move_frequency
+            return true
+        elsif (@elapsed == delta) #ensure move happens on first frame
+            @elapsed = 1 #make sure this condition isn't always true
             return true
         else
             return false
