@@ -1,8 +1,8 @@
 require_relative '../game/constants.rb'
-require_relative 'locatable.rb'
+require_relative 'traits/locatable.rb'
+require_relative 'traits/moveable.rb'
 require_relative '../systems/physics/bodies/body.rb'
 require_relative '../systems/physics/bodies/fixture.rb'
-require_relative '../systems/physics/moveable.rb'
 require_relative '../systems/physics/geometry/shape.rb'
 
 class Entity

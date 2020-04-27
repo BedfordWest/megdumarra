@@ -1,5 +1,5 @@
-require_relative 'velocity.rb'
-require_relative '../../entities/locatable.rb'
+require_relative '../../systems/physics/velocity.rb'
+require_relative 'locatable.rb'
 module Moveable
     include Locatable
 
